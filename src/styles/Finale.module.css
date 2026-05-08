@@ -1,0 +1,121 @@
+.section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--black);
+  text-align: center;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('https://images.unsplash.com/photo-1614031028845-a41b2b70d27f?w=1800&q=85') center/cover no-repeat;
+  filter: brightness(0.13) saturate(0.45);
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse 65% 70% at 50% 50%, transparent 30%, rgba(7,6,3,0.88) 100%);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rule {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.ruleLine {
+  width: 72px; height: 1px;
+  background: var(--gold);
+  opacity: 0.4;
+}
+
+.ruleText {
+  font-family: var(--ff-body);
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.title {
+  font-family: var(--ff-disp);
+  font-size: clamp(3rem, 7.5vw, 8rem);
+  font-weight: 300;
+  line-height: 0.96;
+  opacity: 0;
+  transform: scale(1.12) translateY(-20px);
+}
+.title em {
+  font-style: italic;
+  color: var(--gold2);
+}
+
+.sub {
+  margin-top: 2rem;
+  font-family: var(--ff-acc);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--beige);
+  opacity: 0;
+  max-width: 460px;
+  line-height: 1.7;
+}
+
+.btnWrap {
+  margin-top: 3.2rem;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.72);
+}
+
+.btnGlow {
+  position: absolute;
+  inset: -28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,146,42,0.28) 0%, transparent 70%);
+  z-index: 0;
+  opacity: 0;
+}
+
+.btn {
+  position: relative;
+  z-index: 1;
+  font-size: 0.68rem;
+  padding: 1.1rem 4rem;
+  letter-spacing: 0.3em;
+  transition: background 0.3s, transform 0.3s;
+}
+.btn:hover { transform: scale(1.04); }
+
+.footnote {
+  position: absolute;
+  bottom: 2.4rem;
+  font-family: var(--ff-body);
+  font-size: 0.52rem;
+  letter-spacing: 0.28em;
+  color: var(--muted);
+  font-weight: 300;
+  text-transform: uppercase;
+  z-index: 2;
+}

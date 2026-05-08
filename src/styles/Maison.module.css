@@ -1,0 +1,104 @@
+.maison {
+  padding: 9rem 4rem;
+  background: var(--dark);
+  position: relative;
+}
+
+.eyebrow {
+  font-family: var(--ff-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.38em;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+
+.title {
+  font-family: var(--ff-disp);
+  font-size: clamp(2.6rem, 4.5vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 5rem;
+}
+.title em { font-style: italic; color: var(--gold2); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  max-width: 1000px;
+}
+
+.card {
+  background: var(--panel);
+  padding: 3.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.7s ease;
+}
+.card:hover { background: #1a130a; }
+.card:hover::before { transform: scaleX(1); }
+
+.cardYear {
+  font-family: var(--ff-body);
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  font-weight: 300;
+  margin-bottom: 2.2rem;
+  text-transform: uppercase;
+}
+
+.cardRoman {
+  font-family: var(--ff-disp);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: rgba(184,146,42,0.12);
+  line-height: 1;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.05em;
+}
+
+.cardTitle {
+  font-family: var(--ff-disp);
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 1.1rem;
+  line-height: 1.2;
+}
+
+.cardBody {
+  font-size: 0.82rem;
+  line-height: 1.9;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.cardTag {
+  display: inline-block;
+  margin-top: 1.8rem;
+  border-bottom: 1px solid rgba(184,146,42,0.3);
+  padding-bottom: 0.3rem;
+  font-family: var(--ff-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .maison { padding: 5rem 1.5rem; }
+  .grid { grid-template-columns: 1fr; }
+}

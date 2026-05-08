@@ -1,0 +1,131 @@
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Design Tokens ── */
+:root {
+  --black:    #070603;
+  --dark:     #0e0b08;
+  --panel:    #13100c;
+  --brown:    #2e1f10;
+  --gold:     #b8922a;
+  --gold2:    #d4af54;
+  --gold3:    #f0d080;
+  --cream:    #f5f0e6;
+  --beige:    #ddd0b8;
+  --muted:    #7a6e5e;
+  --ff-disp:  'Playfair Display', serif;
+  --ff-body:  'Raleway', sans-serif;
+  --ff-acc:   'EB Garamond', serif;
+}
+
+html { scroll-behavior: auto; }
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: var(--ff-body);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── LV Monogram Pattern ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ctext x='8' y='32' font-family='serif' font-size='22' font-weight='bold' fill='%23c9a84c' opacity='.9'%3ELV%3C/text%3E%3Ctext x='48' y='72' font-family='serif' font-size='22' font-weight='bold' fill='%23c9a84c' opacity='.9'%3ELV%3C/text%3E%3Ccircle cx='40' cy='40' r='12' fill='none' stroke='%23c9a84c' stroke-width='.8' opacity='.6'/%3E%3C/svg%3E");
+}
+
+/* ── Noise Texture ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+
+/* ── Shared Button Styles ── */
+.btn-lv {
+  padding: 0.85rem 2.8rem;
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  font-family: var(--ff-body);
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: none;
+  transition: background 0.3s;
+}
+.btn-lv:hover { background: var(--gold2); }
+
+.btn-lv-ghost {
+  padding: 0.85rem 2.8rem;
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid rgba(245, 240, 230, 0.2);
+  font-family: var(--ff-body);
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 300;
+  cursor: none;
+  transition: border-color 0.3s, color 0.3s;
+}
+.btn-lv-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ── Shared Section Labels ── */
+.s-eyebrow {
+  font-family: var(--ff-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.38em;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+
+.s-title {
+  font-family: var(--ff-disp);
+  font-size: clamp(2.6rem, 4.5vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 5rem;
+}
+.s-title em {
+  font-style: italic;
+  color: var(--gold2);
+}
+
+/* ── Scroll Hint ── */
+@keyframes vline {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ── Ring Pulse ── */
+@keyframes ringpulse {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.04); }
+}
+
+/* ── Responsive helpers ── */
+@media (max-width: 900px) {
+  .hide-mobile { display: none !important; }
+}
